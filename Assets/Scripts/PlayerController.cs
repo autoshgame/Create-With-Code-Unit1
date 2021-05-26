@@ -25,6 +25,6 @@ public class PlayerController : MonoBehaviour
     void Run()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
-        this.transform.Translate((float)(horizontalMove * 0.6), 0, 0);
+        this.transform.Translate((float)(horizontalMove * 0.314), 0, 0);
     }
 }
