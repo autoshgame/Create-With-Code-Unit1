@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 5f;
+    private float verticalSpeed = 10f;
+    [SerializeField]
+    private float turnSpeed = 10f;
     private float horizontalMove;
     
     // Start is called before the first frame update
@@ -18,13 +20,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //this.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
-        this.transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        Run();
+        this.transform.Translate(Vector3.forward * verticalSpeed * Time.deltaTime);
+        HorizontalMove();
     }
 
-    void Run()
+    void HorizontalMove()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
-        this.transform.Translate((float)(horizontalMove * 0.314), 0, 0);
+        this.transform.Rotate(Vector3.up, turnSpeed * horizontalMove * Time.deltaTime);
     }
 }
