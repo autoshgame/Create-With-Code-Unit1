@@ -13,13 +13,11 @@ public class PlayerController : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
         this.transform.Rotate(Vector3.up, turnSpeed * horizontalMove * Time.deltaTime);
-        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
    void VerticalMove()
     {
         this.transform.Translate(Vector3.forward * verticalSpeed * Time.deltaTime);
-        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     // Start is called before the first frame update
